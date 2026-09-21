@@ -3,23 +3,21 @@ Description=Binkilic ASM Django Gunicorn Daemon
 After=network.target
 
 [Service]
-User=www-data
+User=root
 Group=www-data
 WorkingDirectory=/var/www/binkilicasm/backend
 Environment="PATH=/var/www/binkilicasm/backend/venv/bin"
 Environment="DJANGO_DEBUG=False"
-Environment="DJANGO_ALLOWED_HOSTS=binkilicasm.com,www.binkilicasm.com,127.0.0.1,localhost"
-Environment="CORS_ALLOWED_ORIGINS=https://binkilicasm.com,https://www.binkilicasm.com"
+Environment="DJANGO_ALLOWED_HOSTS=binkilicasm.com.tr,www.binkilicasm.com.tr,77.245.155.150,127.0.0.1,localhost"
+Environment="CORS_ALLOWED_ORIGINS=https://binkilicasm.com.tr,https://www.binkilicasm.com.tr,http://binkilicasm.com.tr,http://www.binkilicasm.com.tr"
 ExecStart=/var/www/binkilicasm/backend/venv/bin/gunicorn \
           --workers 3 \
           --bind 127.0.0.1:8000 \
-          --timeout 60 \
-          --access-logfile /var/log/binkilic_gunicorn_access.log \
-          --error-logfile /var/log/binkilic_gunicorn_error.log \
+          --timeout 120 \
           asm_backend.wsgi:application
 
 Restart=always
-RestartSec=5s
+RestartSec=3s
 
 [Install]
 WantedBy=multi-user.target
