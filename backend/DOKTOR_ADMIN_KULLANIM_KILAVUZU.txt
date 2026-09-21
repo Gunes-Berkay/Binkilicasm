@@ -11,7 +11,7 @@ hizmet saatlerini güncellemesi amacıyla hazırlanmıştır.
 1. YÖNETİM PANELİNE GİRİŞ
 ----------------------------------------------------------------------------------------
 * Panel Web Adresi : http://localhost:8000/admin/
-  (Web siteniz yayına alındığında: https://binkilicasm.com/admin/ veya ilgili alan adı)
+  (Canlı Yayındaki Panel Adresi: https://binkilicasm.com.tr/admin/)
 
 * Tanımlı Kullanıcı Hesapları:
   -------------------------------------------------------------
