@@ -1,0 +1,124 @@
+========================================================================================
+             BİNKILIÇ AİLE SAĞLIĞI MERKEZİ - DOKTOR & PERSONEL YÖNETİM PANELİ
+                                 KULLANIM KILAVUZU
+========================================================================================
+
+Bu kılavuz, Dr. Emre İleri, Dr. Menekşe Yılmaz ve Binkılıç ASM sağlık ekibinin web sitesini
+kolayca yönetmesi, gelen hasta bildirimlerini ve soruları görüntülemesi, duyuru ve gezici
+hizmet saatlerini güncellemesi amacıyla hazırlanmıştır.
+
+----------------------------------------------------------------------------------------
+1. YÖNETİM PANELİNE GİRİŞ
+----------------------------------------------------------------------------------------
+* Panel Web Adresi : http://localhost:8000/admin/
+  (Web siteniz yayına alındığında: https://binkilicasm.com/admin/ veya ilgili alan adı)
+
+* Tanımlı Kullanıcı Hesapları:
+  -------------------------------------------------------------
+  Kullanıcı Adı : doktor      | Şifre: Binkilic2026!  (Genel Hekim & Sağlık Ekibi Hesabı)
+  Kullanıcı Adı : dr_emre     | Şifre: Binkilic2026!  (Dr. Emre İleri Özel Hesabı)
+  Kullanıcı Adı : dr_menekse  | Şifre: Binkilic2026!  (Dr. Menekşe Yılmaz Özel Hesabı)
+  Kullanıcı Adı : admin       | Şifre: Binkilic2026!  (Sistem Yöneticisi)
+  -------------------------------------------------------------
+
+  * Öneri: Güvenliğiniz için sisteme ilk girişinizden sonra sağ üst köşedeki adınıza
+    tıklayarak "Şifre Değiştir" alanından şifrenizi güncelleyebilirsiniz.
+
+
+----------------------------------------------------------------------------------------
+2. GELEN HASTA BİLDİRİMLERİ VE DOKTOR SORULARI (GELEN KUTUSU)
+----------------------------------------------------------------------------------------
+Vatandaşların web sitesindeki "Online Hasta Bildirim ve Soru Formu" üzerinden gönderdiği tüm
+başvurular bu bölümde toplanır.
+
+* Nasıl Görüntülenir?
+  1. Sol menüden veya ana ekrandan "Hasta bildirimleri" (Patient Notifications) başlığına tıklayın.
+  2. Açılan listede:
+     - Kırmızı [● YENİ BEKLEYEN] işareti: Henüz incelenmemiş yeni başvuruları gösterir.
+     - Yeşil [✓ İncelendi] işareti: İncelenmiş ve işlem yapılmış başvuruları gösterir.
+  3. Başvuru türüne göre (Doktora Soru, Gebe Bildirimi, Bebek/Çocuk, Engelli Hasta) filtreleme
+     yapmak için sağ taraftaki "Filtrele" panelini kullanabilirsiniz.
+  4. Hekime göre filtreleme: "Muhatap Hekim" filtresinden sadece kendi adınıza gelenleri seçebilirsiniz.
+
+* Bildirimi İnceleme ve "İncelendi" Yapma:
+  - İlgili hastanın adına tıklayarak detaylı mesajı, adresi ve telefonunu okuyabilirsiniz.
+  - İnceledikten sonra "İncelendi" kutucuğunu işaretleyip "Kaydet"e basabilir veya listeden
+    birden fazla satırı seçip üstteki İşlemler menüsünden "Seçili başvuruları 'İncelendi'
+    olarak işaretle" seçeneğini uygulayabilirsiniz.
+
+
+----------------------------------------------------------------------------------------
+3. YENİ DUYURU / HABER EKLEME VE YÖNETME
+----------------------------------------------------------------------------------------
+Bebek aşı günleri, bayram/tatil çalışma düzeni, grip aşısı kampanyaları veya Sağlık Bakanlığı
+bilgilendirmelerini yayınlamak için:
+
+* Yeni Duyuru Eklemek İçin:
+  1. "Duyurular" satırının yanındaki "+ Ekle" butonuna tıklayın.
+  2. Başlık: Örneğin "2026 Yılı İnfluenza (Grip) Aşıları Başlamıştır"
+  3. Kategori: "Duyuru", "Aşı Takvimi" veya "Sağlık Bakanlığı" seçin.
+  4. Yayın Tarihi: Günün tarihini seçin.
+  5. Öne Çıkarılsın mı?: İşaretlerseniz ana sayfanın en üstünde gösterilir.
+  6. İçerik: Duyuru metninizi yazın.
+  7. "Kaydet" butonuna tıklayın. Duyuru anında web sitesinde yayına girer.
+
+* Var Olan Duyuruyu Kaldırmak / Gizlemek İçin:
+  - Listeden duyuruyu açıp "Aktif mi" kutucuğundaki işareti kaldırıp kaydedebilirsiniz.
+
+
+----------------------------------------------------------------------------------------
+4. GEZİCİ SAĞLIK HİZMETLERİ VE ÇİZELGE GÜNCELLEME
+----------------------------------------------------------------------------------------
+Hallaçlı, Aydınlar ve Yaylacık köylerimizin ziyaret gün veya saatlerinde bir değişiklik
+olduğunda:
+
+1. "Gezici sağlık hizmetleri" başlığına tıklayın.
+2. Güncellemek istediğiniz köyü seçin (Örn: Hallaçlı Köyü).
+3. "Ziyaret Gün ve Saatleri" alanını güncelleyin (Örn: "Her Perşembe 09:00 - 12:00").
+4. "Hizmet Yeri" veya "Sorumlu Hekim" bilgilerini gerekiyorsa düzenleyip "Kaydet"e basın.
+
+
+----------------------------------------------------------------------------------------
+5. HEKİM & PERSONEL MESAYİ SAATLERİ DÜZENLEME
+----------------------------------------------------------------------------------------
+* Hekimlerimizin oda numarası, poliklinik mesai saatleri veya gezici köyleri değiştiğinde:
+  - "Hekimler" bölümüne girip ilgili hekim profilini açın ve çalışma çizelgesini güncelleyin.
+* Aile Sağlığı Çalışanları (Hemşire / Ebe / Personel) görev dağılımları için:
+  - "Personel" bölümünden ilgili personelin görev tanımı veya sorumlu hekimini güncelleyin.
+
+
+----------------------------------------------------------------------------------------
+6. İNDİRİLEBİLİR DOSYA VE PDF FORMLARI YÜKLEME
+----------------------------------------------------------------------------------------
+Vatandaşların web sitesinden indirmesi gereken formlar (Gebe takip formu, ASM dilekçe
+örnekleri, aşı çizelgeleri vb.) için:
+
+1. "İndirilebilir Dosyalar" bölümüne girip "+ Ekle"ye basın.
+2. Dosya Başlığı yazın (Örn: "Binkılıç ASM Gebe İzlem Protokolü").
+3. Kategori seçin ("Form", "Rehber", "Bilgilendirme").
+4. "Dosya Seç" butonu ile bilgisayarınızdan PDF dosyasını yükleyin.
+5. "Kaydet"e basın. Dosya anında web sitesinin "Dosyalar" sayfasında indirmeye açılır.
+
+
+----------------------------------------------------------------------------------------
+7. FOTO GALERİ YÖNETİMİ
+----------------------------------------------------------------------------------------
+ASM binası, aşılama odası veya etkinlik fotoğraflarını web sitesine eklemek için:
+
+1. "Foto Galeri" bölümüne girin.
+2. "+ Ekle" butonuna tıklayıp fotoğrafı yükleyin, başlık ve kategori seçip kaydedin.
+
+
+----------------------------------------------------------------------------------------
+8. GÜVENLİK VE GÜNLÜK KULLANIM TAVSİYELERİ
+----------------------------------------------------------------------------------------
+1. Hasta Mahremiyeti: Hasta bildirim formunda yer alan vatandaş telefon ve mesaj içerikleri
+   KVKK ve hekimlik meslek etiği gereğince 3. şahıslarla paylaşılmamalıdır.
+2. Oturumu Kapatma: Ortak kullanılan poliklinik bilgisayarlarında işlem bittikten sonra
+   sağ üst köşedeki "Çıkış Yap" (Log out) butonuna basarak oturumu kapatınız.
+3. Teknik Destek: Panelde veya web sitesinde bir sorunla karşılaşıldığında sistem
+   yöneticisiyle binkilicasm@gmail.com adresinden iletişime geçebilirsiniz.
+
+========================================================================================
+                 BİNKILIÇ AİLE SAĞLIĞI MERKEZİ SAĞLIKLI GÜNLER DİLER
+========================================================================================

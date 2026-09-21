@@ -1,0 +1,209 @@
+========================================================================================
+            BİNKILIÇ AİLE SAĞLIĞI MERKEZİ - HOSTING.COM.TR KURULUM VE YAYINLAMA KILAVUZU
+                                (ADIM ADIM DEPLOYMENT REHBERİ)
+========================================================================================
+
+Bu kılavuz, hosting.com.tr üzerinden Domain (Alan Adı) ve Cloud VPS (Sanal Sunucu) alarak
+Binkılıç ASM web sitesini siber saldırılara karşı korumalı ve SSL (HTTPS) sertifikalı olarak
+canlıya almanızı sağlayacak tüm adımları içerir.
+
+========================================================================================
+ADIM 1: HOSTING.COM.TR ÜZERİNDEN SİPARİŞ VERME
+========================================================================================
+
+1.1. Domain (Alan Adı) Satın Alma:
+----------------------------------
+- hosting.com.tr adresine girin ve arama çubuğundan domain sorgulayın:
+  * Önerilen: `binkilicasm.com` veya `binkilicasm.com.tr`
+- Sepete ekleyin. (DNS Yönetimi ücretsizdir, işaretleyin).
+
+1.2. Cloud VPS / VDS (Sunucu) Satın Alma:
+-----------------------------------------
+- hosting.com.tr menüsünden "Sunucu" -> "Cloud VPS" veya "VDS" bölümüne girin.
+- Önerilen Paket:
+  * CPU: En az 2 Çekirdek (vCPU)
+  * RAM: 2 GB veya 4 GB RAM (ASM sitesi için 2 GB fazlasıyla hızlı ve yeterlidir)
+  * Disk: 30 GB - 50 GB NVMe / SSD
+- İşletim Sistemi Seçimi (ÇOK ÖNEMLİ):
+  * **Ubuntu 22.04 LTS (64-bit)** veya **Ubuntu 24.04 LTS** seçiniz.
+- Siparişi tamamlayıp ödemeyi yapın. 3-5 dakika içinde sunucunuz otomatik aktif olur.
+
+
+========================================================================================
+ADIM 2: SUNUCU BİLGİLERİNİ ALMA VE DNS YÖNLENDİRMESİ
+========================================================================================
+
+2.1. Sunucu IP ve Şifresini Öğrenme:
+------------------------------------
+- hosting.com.tr Müşteri Panelinize giriş yapın -> "Hizmetlerim" -> "Sunucularım" kısmına girin.
+- Size atanan **Statik IP Adresini** (Örnek: `185.120.45.67`) ve **root şifresini** not edin.
+  *(Şifre e-posta adresinize de gönderilir).*
+
+2.2. Domain DNS Kayıtlarını Sunucuya Bağlama:
+---------------------------------------------
+- Panelde "Alan Adlarım" -> Domaininizin yanındaki "Yönet / DNS Yönetimi" butonuna tıklayın.
+- İki adet **A Kaydı** oluşturun/düzenleyin:
+  1. Ad / Host: `@` (veya boş)  | Tür: `A` | Değer / IP: `185.120.45.67` (Sunucu IP'niz)
+  2. Ad / Host: `www`          | Tür: `A` | Değer / IP: `185.120.45.67` (Sunucu IP'niz)
+- Kaydedin. (DNS yönlenmesi 10-30 dakika içinde tüm dünyada aktifleşir).
+
+
+========================================================================================
+ADIM 3: SUNUCUYA SSH İLE BAĞLANMA
+========================================================================================
+
+Windows bilgisayarınızdan **PowerShell** veya **Terminal** uygulamasını açın ve şu komutu yazın:
+(IP adresini kendi sunucu IP'niz ile değiştirin)
+
+    ssh root@185.120.45.67
+
+- "Are you sure you want to continue connecting (yes/no)?" sorusuna `yes` yazıp Enter'a basın.
+- hosting.com.tr'nin verdiği `root` şifresini yazın (şifre ekranda görünmez, yazıp Enter'a basın).
+- Artık sunucunuzun içindesiniz!
+
+
+========================================================================================
+ADIM 4: SİBER GÜVENLİK KALKANLARI VE PAKETLERİN KURULUMU
+========================================================================================
+
+Sunucu terminalinde sırasıyla aşağıdaki komutları çalıştırın:
+
+4.1. Sistemi Güncelleyin:
+-------------------------
+sudo apt-get update && sudo apt-get upgrade -y
+
+4.2. Gerekli Programları ve Güvenlik Araçlarını Kurun:
+------------------------------------------------------
+sudo apt-get install -y python3 python3-pip python3-venv nginx ufw git curl certbot python3-certbot-nginx fail2ban
+
+4.3. Node.js 20 LTS Kurun (Frontend Derlemesi İçin):
+----------------------------------------------------
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+4.4. Güvenlik Duvarını (UFW Firewall) Aktif Edin:
+-------------------------------------------------
+(Sadece Web ve SSH portlarını açar, diğer tüm hacker portlarını kilitler)
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw --force enable
+
+4.5. Fail2Ban (Brute-Force Şifre Deneme Engelleyici) Başlatın:
+--------------------------------------------------------------
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+
+
+========================================================================================
+ADIM 5: PROJE KODLARINI SUNUCUYA YÜKLEME
+========================================================================================
+
+5.1. Dizin Oluşturun:
+---------------------
+sudo mkdir -p /var/www/binkilicasm
+sudo chown -R $USER:www-data /var/www/binkilicasm
+cd /var/www/binkilicasm
+
+5.2. Kodları Çekin (Git ile veya Bilgisayarınızdan Yükleyerek):
+--------------------------------------------------------------
+* Eğer GitHub/GitLab kullanıyorsanız:
+  git clone <REPO_LINKINIZ> /var/www/binkilicasm
+
+* Veya FileZilla (SFTP) programı ile bilgisayarınızdaki `backend`, `frontend`, `deployment`
+  klasörlerini `/var/www/binkilicasm/` içine yükleyebilirsiniz.
+
+
+========================================================================================
+ADIM 6: BACKEND (DJANGO) KURULUMU VE VERİTABANI
+========================================================================================
+
+cd /var/www/binkilicasm/backend
+
+# Sanal ortam oluşturup aktifleştirin
+python3 -m venv venv
+source venv/bin/activate
+
+# Gerekli Python paketlerini yükleyin
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# Veritabanı tablolarını oluşturun ve hazır Binkılıç ASM verilerini yükleyin
+python manage.py migrate
+python manage.py seed_binkilic_asm
+python manage.py setup_admin_users
+
+# Statik dosyaları toplayın
+python manage.py collectstatic --noinput
+
+# İzinleri www-data kullanıcısına verin
+sudo chown -R www-data:www-data /var/www/binkilicasm/backend/db.sqlite3 /var/www/binkilicasm/backend/media /var/www/binkilicasm/backend/staticfiles
+
+
+========================================================================================
+ADIM 7: FRONTEND (REACT) PRODUCTION DERLEMESİ
+========================================================================================
+
+cd /var/www/binkilicasm/frontend
+npm install
+npm run build
+
+
+========================================================================================
+ADIM 8: GUNICORN SERVİSİNİ VE NGİNX'İ BAŞLATMA
+========================================================================================
+
+8.1. Gunicorn Servisini Yükleyin:
+---------------------------------
+sudo cp /var/www/binkilicasm/deployment/binkilicasm.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl start binkilicasm
+sudo systemctl enable binkilicasm
+
+(Servisin çalıştığını doğrulamak için: `sudo systemctl status binkilicasm`)
+
+8.2. Nginx Web Sunucusunu Yapılandırın:
+---------------------------------------
+sudo cp /var/www/binkilicasm/deployment/nginx_binkilicasm.conf /etc/nginx/sites-available/binkilicasm
+sudo ln -s /etc/nginx/sites-available/binkilicasm /etc/nginx/sites-enabled/
+sudo rm -f /etc/nginx/sites-enabled/default
+
+# Nginx ayarlarını test edin ve yeniden başlatın
+sudo nginx -t
+sudo systemctl restart nginx
+
+
+========================================================================================
+ADIM 9: ÜCRETSİZ SSL SERTİFİKASI (HTTPS) KURULUMU
+========================================================================================
+
+Domaininiz sunucu IP'sine yönlendikten sonra tek bir komutla Let's Encrypt SSL sertifikasını
+kurun:
+
+    sudo certbot --nginx -d binkilicasm.com -d www.binkilicasm.com
+
+- E-posta adresinizi girin, şartları kabul edin (`Y`).
+- Certbot sertifikayı otomatik üretir, Nginx içine yerleştirir ve 90 günde bir otomatik
+  yenileme cron görevini kurar.
+
+Tebrikler! Web siteniz artık https://binkilicasm.com adresinde dünya standartlarında
+siber güvenlik kalkanları ile yayındadır!
+
+
+========================================================================================
+ADIM 10: SİBER SALDIRILARA KARŞI AKTİF KORUMALAR
+========================================================================================
+
+Sitenizde şu anda devrede olan güvenlik katmanları:
+1. Anti-DDoS & Rate Limiting: Saniyede 15'ten fazla istek atan botlar otomatik engellenir.
+2. Form Spam Koruması: Online Bildirim Formuna saatte 15'ten fazla gönderim engellenir.
+3. XSS & HTML Injection Temizliği: Gönderilen formlardaki tüm zararlı kodlar sterilize edilir.
+4. Fail2Ban: Sunucu SSH şifresini 5 kez yanlış deneyen IP adresleri 24 saat banlanır.
+5. UFW Güvenlik Duvarı: Kapalı tüm sunucu portları dış dünyaya tamamen mühürlüdür.
+6. HSTS & SSL: 256-bit şifrelenmiş veri iletimi ve anti-clickjacking koruması aktiftir.
+
+========================================================================================
+                 BİNKILIÇ AİLE SAĞLIĞI MERKEZİ SAĞLIKLI GÜNLER DİLER
+========================================================================================
