@@ -94,7 +94,7 @@ export default function Footer({ info }) {
                 <Link to="/kurumsal/hizmet-standartlari" style={{ color: '#cbd5e1' }}>• Hizmet Standartlarımız</Link>
               </li>
               <li>
-                <Link to="/kurumsal/calisma-saatlerimiz" style={{ color: '#cbd5e1' }}>• Çalışma & Esnek Mesai Saatleri</Link>
+                <Link to="/kurumsal/calisma-saatlerimiz" style={{ color: '#cbd5e1' }}>• Çalışma Saatlerimiz</Link>
               </li>
             </ul>
           </div>

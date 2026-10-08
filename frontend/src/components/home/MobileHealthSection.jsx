@@ -7,21 +7,21 @@ export default function MobileHealthSection({ mobileServices = [] }) {
     {
       village_name: "Hallaçlı Köyü",
       doctor_name: "Dr. Emre İleri",
-      days_and_hours: "Her Hafta Perşembe 09:00 - 12:00",
+      days_and_hours: "Her Hafta Pazartesi 14:00 - 17:00",
       service_location: "Hallaçlı Köy Konağı / Sağlık Evi",
       services: "Poliklinik muayenesi, reçete yazımı, tansiyon/şeker takibi, kronik hastalık izlemi ve aşı uygulaması."
     },
     {
       village_name: "Aydınlar Köyü",
       doctor_name: "Dr. Menekşe Yılmaz",
-      days_and_hours: "Her Hafta Salı 09:00 - 12:00",
+      days_and_hours: "Her Hafta Salı 14:00 - 17:00",
       service_location: "Aydınlar Köy Sağlık Evi",
       services: "Genel muayene, gebe-bebek izlemi, kan alımı yönlendirmesi, kanser tarama kitleri teslimi ve ilaç takibi."
     },
     {
       village_name: "Yaylacık Köyü",
       doctor_name: "Dr. Menekşe Yılmaz",
-      days_and_hours: "Her Hafta Çarşamba 09:00 - 12:00",
+      days_and_hours: "Her Ayın İlk Salı Günü 13:00 - 14:00",
       service_location: "Yaylacık Köy Muhtarlığı Sağlık Odası",
       services: "Poliklinik muayenesi, yatağa bağımlı ve yaşlı hasta kontrolü, pansuman ve enjeksiyon uygulamaları."
     }

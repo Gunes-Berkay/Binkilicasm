@@ -6,9 +6,10 @@ export default function MobileHealthPage() {
     {
       name: "Hallaçlı Köyü",
       doctor: "Dr. Emre İleri",
-      unit: "34.09.001 Nolu Birim",
-      schedule: "Her Hafta Perşembe Günü",
-      hours: "09:00 - 12:00",
+      staff: "Ebe Elif Öncül",
+      unit: "34.15.018 Nolu Birim",
+      schedule: "Her Hafta Pazartesi Günü",
+      hours: "14:00 - 17:00",
       location: "Hallaçlı Köy Konağı / Sağlık Evi",
       color: "#0284c7",
       bg: "#e0f2fe",
@@ -23,9 +24,10 @@ export default function MobileHealthPage() {
     {
       name: "Aydınlar Köyü",
       doctor: "Dr. Menekşe Yılmaz",
-      unit: "34.09.002 Nolu Birim",
+      staff: "Hemşire Elif Alp",
+      unit: "34.15.019 Nolu Birim",
       schedule: "Her Hafta Salı Günü",
-      hours: "09:00 - 12:00",
+      hours: "14:00 - 17:00",
       location: "Aydınlar Köy Sağlık Evi",
       color: "#0d9488",
       bg: "#ccfbf1",
@@ -40,9 +42,10 @@ export default function MobileHealthPage() {
     {
       name: "Yaylacık Köyü",
       doctor: "Dr. Menekşe Yılmaz",
-      unit: "34.09.002 Nolu Birim",
-      schedule: "Her Hafta Çarşamba Günü",
-      hours: "09:00 - 12:00",
+      staff: "Hemşire Elif Alp",
+      unit: "34.15.019 Nolu Birim",
+      schedule: "Her Ayın İlk Haftasındaki Salı Günü",
+      hours: "13:00 - 14:00",
       location: "Yaylacık Köy Muhtarlığı Sağlık Odası",
       color: "#0d9488",
       bg: "#ccfbf1",
@@ -112,9 +115,10 @@ export default function MobileHealthPage() {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
                   <span className="badge badge-primary">{v.unit}</span>
                   <span className="badge badge-secondary">{v.doctor}</span>
+                  {v.staff && <span className="badge badge-warning" style={{ background: '#fef3c7', color: '#92400e', border: '1px solid #fde68a' }}>{v.staff}</span>}
                 </div>
               </div>
 

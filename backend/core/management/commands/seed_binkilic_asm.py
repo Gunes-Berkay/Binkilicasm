@@ -36,7 +36,7 @@ class Command(BaseCommand):
         info.address = "Atatürk Mah. İstanbul Cad. No: 2 Semih Sokak Binkılıç, Çatalca / İstanbul"
         info.map_lat = 41.4107
         info.map_lng = 28.1846
-        info.working_hours = "Hafta içi 08:00 - 17:00 (Esnek Mesai 08:00 - 19:00)"
+        info.working_hours = "Hafta içi her gün 08:00 - 17:00 (Öğle Arası 12:00 - 13:00)"
         info.lab_hours = "Salı ve Perşembe 08:30 - 10:30"
         info.building_image = "asm/binkilic_asm.jpg"
         info.about_text = (
@@ -53,22 +53,22 @@ class Command(BaseCommand):
         doc1 = Doctor.objects.create(
             name="Emre İleri",
             title="Dr.",
-            unit_no="34.09.001",
+            unit_no="34.15.018",
             room_no="1 Nolu Poliklinik",
             mobile_villages="Hallaçlı Köyü",
-            bio="Binkılıç Aile Sağlığı Merkezi 34.09.001 Nolu Birim Aile Hekimidir. Birinci basamak muayene, kronik hastalık takipleri, bağışıklama ve koruyucu sağlık danışmanlığı hizmeti vermektedir. Hallaçlı Köyü gezici sağlık hizmetlerini yürütmektedir.",
-            schedule="Pazartesi, Salı, Çarşamba, Cuma: 08:00 - 17:00 (Binkılıç ASM)\nPerşembe: 09:00 - 12:00 (Hallaçlı Gezici Hizmet) / 13:00 - 17:00 (Binkılıç ASM)",
+            bio="Binkılıç Aile Sağlığı Merkezi 34.15.018 Nolu Birim Aile Hekimidir. Birinci basamak muayene, kronik hastalık takipleri, bağışıklama ve koruyucu sağlık danışmanlığı hizmeti vermektedir. Hallaçlı Köyü gezici sağlık hizmetlerini yürütmektedir.",
+            schedule="Salı, Çarşamba, Perşembe, Cuma: 08:00 - 17:00 (Binkılıç ASM)\nPazartesi: 08:00 - 12:00 (Binkılıç ASM) / 14:00 - 17:00 (Hallaçlı Gezici Hizmet)\nÖğle Arası: Her gün 12:00 - 13:00",
             avatar_color="#0284c7",
             order=1
         )
         doc2 = Doctor.objects.create(
             name="Menekşe Yılmaz",
             title="Dr.",
-            unit_no="34.09.002",
+            unit_no="34.15.019",
             room_no="2 Nolu Poliklinik",
             mobile_villages="Aydınlar Köyü, Yaylacık Köyü",
-            bio="Binkılıç Aile Sağlığı Merkezi 34.09.002 Nolu Birim Aile Hekimidir. Koruyucu hekimlik, gebe-bebek-çocuk izlemleri, kanser erken teşhis taramaları ve poliklinik hizmetleri vermektedir. Aydınlar ve Yaylacık köylerimize düzenli gezici sağlık hizmeti sunmaktadır.",
-            schedule="Pazartesi, Perşembe, Cuma: 08:00 - 17:00 (Binkılıç ASM)\nSalı: 09:00 - 12:00 (Aydınlar Gezici Hizmet)\nÇarşamba: 09:00 - 12:00 (Yaylacık Gezici Hizmet)",
+            bio="Binkılıç Aile Sağlığı Merkezi 34.15.019 Nolu Birim Aile Hekimidir. Koruyucu hekimlik, gebe-bebek-çocuk izlemleri, kanser erken teşhis taramaları ve poliklinik hizmetleri vermektedir. Aydınlar ve Yaylacık köylerimize düzenli gezici sağlık hizmeti sunmaktadır.",
+            schedule="Pazartesi, Çarşamba, Perşembe, Cuma: 08:00 - 17:00 (Binkılıç ASM)\nSalı: 08:00 - 12:00 (Binkılıç ASM) / 14:00 - 17:00 (Aydınlar Gezici Hizmet) (Ayın ilk Salı günü 13:00 - 14:00 Yaylacık Gezici Hizmet)\nÖğle Arası: Her gün 12:00 - 13:00",
             avatar_color="#0d9488",
             order=2
         )
@@ -76,19 +76,19 @@ class Command(BaseCommand):
         # 4. Staff
         Staff.objects.all().delete()
         Staff.objects.create(
-            name="Elif Alp",
-            title="Hemşire",
-            role_type="nurse",
-            assigned_doctor="Dr. Emre İleri (34.09.001 Nolu Birim)",
-            duties="Aşı takvimi uygulamaları, bebek ve çocuk gelişim izlemleri, gebe izlemleri, enjeksiyon, pansuman ve tansiyon ölçümleri.",
-            order=1
-        )
-        Staff.objects.create(
             name="Elif Öncül",
             title="Ebe",
             role_type="midwife",
-            assigned_doctor="Dr. Menekşe Yılmaz (34.09.002 Nolu Birim)",
-            duties="Kadın ve üreme sağlığı danışmanlığı, gebe ve lohusa takipleri, kanser taramaları (HPV/Kanser kitleri), bebek izlemleri ve emzirme eğitimi.",
+            assigned_doctor="Dr. Emre İleri (34.15.018 Nolu Birim)",
+            duties="Kadın ve üreme sağlığı danışmanlığı, gebe ve lohusa takipleri, aşı uygulamaları, kanser taramaları (HPV/GGK kitleri) ve bebek izlemleri.",
+            order=1
+        )
+        Staff.objects.create(
+            name="Elif Alp",
+            title="Hemşire",
+            role_type="nurse",
+            assigned_doctor="Dr. Menekşe Yılmaz (34.15.019 Nolu Birim)",
+            duties="Aşı takvimi uygulamaları, bebek ve çocuk gelişim izlemleri, gebe izlemleri, enjeksiyon, pansuman ve tansiyon/şeker ölçümleri.",
             order=2
         )
         Staff.objects.create(
@@ -113,7 +113,7 @@ class Command(BaseCommand):
         MobileHealthService.objects.create(
             village_name="Hallaçlı Köyü",
             doctor_name="Dr. Emre İleri",
-            days_and_hours="Her Perşembe 09:00 - 12:00",
+            days_and_hours="Her Hafta Pazartesi 14:00 - 17:00",
             service_location="Hallaçlı Köy Konağı / Sağlık Evi",
             services="Poliklinik muayenesi, reçete düzenleme, tansiyon/şeker takibi, kronik hastalık izlemi ve aşı uygulaması.",
             order=1
@@ -121,7 +121,7 @@ class Command(BaseCommand):
         MobileHealthService.objects.create(
             village_name="Aydınlar Köyü",
             doctor_name="Dr. Menekşe Yılmaz",
-            days_and_hours="Her Salı 09:00 - 12:00",
+            days_and_hours="Her Hafta Salı 14:00 - 17:00",
             service_location="Aydınlar Köy Sağlık Evi",
             services="Genel muayene, gebe-bebek izlemi, kan alımı yönlendirmesi, kanser tarama kitleri teslimi ve ilaç takibi.",
             order=2
@@ -129,7 +129,7 @@ class Command(BaseCommand):
         MobileHealthService.objects.create(
             village_name="Yaylacık Köyü",
             doctor_name="Dr. Menekşe Yılmaz",
-            days_and_hours="Her Çarşamba 09:00 - 12:00",
+            days_and_hours="Her Ayın İlk Salı Günü 13:00 - 14:00",
             service_location="Yaylacık Köy Muhtarlığı Sağlık Odası",
             services="Poliklinik muayenesi, yatağa bağımlı ve yaşlı hasta kontrolü, pansuman ve enjeksiyon uygulamaları.",
             order=3
@@ -304,7 +304,7 @@ Bebeğinizin sağlıklı büyümesi için doğumdan hemen sonra aile hekiminize 
         Announcement.objects.create(
             title="Binkılıç ASM Gezici Sağlık Hizmetleri Ziyaret Takvimi",
             summary="Hallaçlı, Aydınlar ve Yaylacık köylerimize yönelik haftalık hekim ziyaret günleri ve saatleri ilan edilmiştir.",
-            content="Binkılıç Aile Sağlığı Merkezi hekimlerimiz Dr. Emre İleri ve Dr. Menekşe Yılmaz tarafından yürütülen gezici sağlık hizmetleri kapsamında: Her Salı Aydınlar Köyü, her Çarşamba Yaylacık Köyü ve her Perşembe Hallaçlı Köyü sağlık evlerinde yerinde muayene, aşı ve reçete hizmeti verilmektedir.",
+            content="Binkılıç Aile Sağlığı Merkezi hekimlerimiz Dr. Emre İleri ve Dr. Menekşe Yılmaz tarafından yürütülen gezici sağlık hizmetleri kapsamında: Her Pazartesi 14:00-17:00 Hallaçlı Köyü, her Salı 14:00-17:00 Aydınlar Köyü ve her ayın ilk Salı günü 13:00-14:00 Yaylacık Köyü sağlık evlerinde yerinde muayene, aşı ve reçete hizmeti verilmektedir.",
             category="asm",
             is_featured=True
         )

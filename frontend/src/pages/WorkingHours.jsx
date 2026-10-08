@@ -10,7 +10,7 @@ export default function WorkingHours() {
           <span className="sub-badge">MESAİ PROGRAMI</span>
           <h1 style={{ fontSize: '2.5rem', marginTop: '0.35rem', marginBottom: '0.75rem' }}>Çalışma Saatlerimiz</h1>
           <p style={{ color: '#64748b', fontSize: '1.05rem', maxWidth: '750px' }}>
-            Binkılıç Aile Sağlığı Merkezi çalışma düzeni, poliklinik saatleri, laboratuvar tahlil ve esnek mesai tablosu.
+            Binkılıç Aile Sağlığı Merkezi çalışma düzeni, poliklinik saatleri, laboratuvar tahlil ve gezici sağlık hizmetleri tablosu.
           </p>
         </div>
 
@@ -25,16 +25,12 @@ export default function WorkingHours() {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '0.95rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f1f5f9', paddingBottom: '0.6rem' }}>
-                <span style={{ fontWeight: 600 }}>Pazartesi - Cuma:</span>
+                <span style={{ fontWeight: 600 }}>Hafta İçi (Pazartesi - Cuma):</span>
                 <span style={{ color: '#0284c7', fontWeight: 700 }}>08:00 - 17:00</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f1f5f9', paddingBottom: '0.6rem' }}>
-                <span style={{ fontWeight: 600 }}>Esnek Mesai Düzeni:</span>
-                <span style={{ color: '#0d9488', fontWeight: 700 }}>08:00 - 19:00 (Nöbet Usulü)</span>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f1f5f9', paddingBottom: '0.6rem' }}>
-                <span style={{ fontWeight: 600 }}>Öğle Arası:</span>
-                <span style={{ color: '#64748b' }}>12:00 - 13:00</span>
+                <span style={{ fontWeight: 600 }}>Öğle Arası (Her Gün):</span>
+                <span style={{ color: '#0d9488', fontWeight: 700 }}>12:00 - 13:00</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ fontWeight: 600 }}>Cumartesi - Pazar:</span>
@@ -70,20 +66,23 @@ export default function WorkingHours() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
             
             <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-              <h4 style={{ color: '#0284c7', fontSize: '1.15rem', marginBottom: '0.5rem' }}>Dr. Emre İleri (34.09.001 Nolu Birim)</h4>
+              <h4 style={{ color: '#0284c7', fontSize: '1.15rem', marginBottom: '0.5rem' }}>Dr. Emre İleri (34.15.018 Nolu Birim)</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem' }}>
-                <li>• <strong>Pazartesi, Salı, Çarşamba, Cuma:</strong> 08:00 - 17:00 (Binkılıç ASM Poliklinik)</li>
-                <li>• <strong>Perşembe:</strong> 09:00 - 12:00 (Hallaçlı Köyü Gezici Sağlık Hizmeti)</li>
-                <li>• <strong>Perşembe:</strong> 13:00 - 17:00 (Binkılıç ASM Poliklinik)</li>
+                <li>• <strong>Salı, Çarşamba, Perşembe, Cuma:</strong> 08:00 - 17:00 (Binkılıç ASM Poliklinik)</li>
+                <li>• <strong>Pazartesi:</strong> 08:00 - 12:00 (Binkılıç ASM Poliklinik)</li>
+                <li>• <strong>Pazartesi:</strong> 14:00 - 17:00 (Hallaçlı Köyü Gezici Sağlık Hizmeti)</li>
+                <li>• <em>Öğle Arası: Her gün 12:00 - 13:00</em></li>
               </ul>
             </div>
 
             <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-              <h4 style={{ color: '#0d9488', fontSize: '1.15rem', marginBottom: '0.5rem' }}>Dr. Menekşe Yılmaz (34.09.002 Nolu Birim)</h4>
+              <h4 style={{ color: '#0d9488', fontSize: '1.15rem', marginBottom: '0.5rem' }}>Dr. Menekşe Yılmaz (34.15.019 Nolu Birim)</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem' }}>
-                <li>• <strong>Pazartesi, Perşembe, Cuma:</strong> 08:00 - 17:00 (Binkılıç ASM Poliklinik)</li>
-                <li>• <strong>Salı:</strong> 09:00 - 12:00 (Aydınlar Köyü Gezici Sağlık Hizmeti)</li>
-                <li>• <strong>Çarşamba:</strong> 09:00 - 12:00 (Yaylacık Köyü Gezici Sağlık Hizmeti)</li>
+                <li>• <strong>Pazartesi, Çarşamba, Perşembe, Cuma:</strong> 08:00 - 17:00 (Binkılıç ASM Poliklinik)</li>
+                <li>• <strong>Salı:</strong> 08:00 - 12:00 (Binkılıç ASM Poliklinik)</li>
+                <li>• <strong>Her Ayın İlk Salı Günü:</strong> 13:00 - 14:00 (Yaylacık Köyü Gezici Sağlık Hizmeti)</li>
+                <li>• <strong>Her Hafta Salı:</strong> 14:00 - 17:00 (Aydınlar Köyü Gezici Sağlık Hizmeti)</li>
+                <li>• <em>Öğle Arası: Her gün 12:00 - 13:00</em></li>
               </ul>
             </div>
 

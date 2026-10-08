@@ -12,7 +12,7 @@ class ASMInfo(models.Model):
     building_image = models.ImageField(upload_to="asm/", blank=True, null=True, verbose_name="ASM Binası Görseli")
     map_lat = models.FloatField(default=41.4107, verbose_name="Enlem (Lat)")
     map_lng = models.FloatField(default=28.1846, verbose_name="Boylam (Lng)")
-    working_hours = models.CharField(max_length=255, default="Hafta içi 08:00 - 17:00 (Esnek Mesai 08:00 - 19:00)", verbose_name="Çalışma Saatleri")
+    working_hours = models.CharField(max_length=255, default="Hafta içi her gün 08:00 - 17:00 (Öğle Arası 12:00 - 13:00)", verbose_name="Çalışma Saatleri")
     lab_hours = models.CharField(max_length=255, default="Hafta içi 08:30 - 10:30", verbose_name="Kan Alma Saatleri")
     about_text = models.TextField(blank=True, default="", verbose_name="Hakkımızda Metni")
 

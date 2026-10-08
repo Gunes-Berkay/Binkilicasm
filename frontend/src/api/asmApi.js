@@ -21,7 +21,7 @@ const defaultInfo = {
   address: "Atatürk Mah. İstanbul Cad. No: 2 Semih Sokak Binkılıç, Çatalca / İstanbul",
   map_lat: 41.4107,
   map_lng: 28.1846,
-  working_hours: "Hafta içi 08:00 - 17:00 (Esnek Mesai 08:00 - 19:00)",
+  working_hours: "Hafta içi her gün 08:00 - 17:00 (Öğle Arası 12:00 - 13:00)",
   lab_hours: "Salı ve Perşembe 08:30 - 10:30",
   building_image: "/images/binkilic_asm.jpg",
   about_text: "Binkılıç Aile Sağlığı Merkezi, Çatalca Binkılıç Mahallesinde modern tıp standartlarında 2 Aile Hekimliği Birimi ve deneyimli sağlık çalışanları ile koruyucu ve tedavi edici birinci basamak sağlık hizmeti sunmaktadır. Ayrıca Hallaçlı, Aydınlar ve Yaylacık köylerimize düzenli gezici sağlık hizmeti ulaştırmaktadır."
@@ -32,11 +32,11 @@ const defaultDoctors = [
     id: 1,
     name: "Emre İleri",
     title: "Dr.",
-    unit_no: "34.09.001",
+    unit_no: "34.15.018",
     room_no: "1 Nolu Poliklinik",
     mobile_villages: "Hallaçlı Köyü",
-    bio: "Binkılıç Aile Sağlığı Merkezi 34.09.001 Nolu Birim Aile Hekimidir. Birinci basamak muayene, kronik hastalık takipleri, bağışıklama ve koruyucu sağlık danışmanlığı hizmeti vermektedir. Hallaçlı Köyü gezici sağlık hizmetlerini yürütmektedir.",
-    schedule: "Pazartesi, Salı, Çarşamba, Cuma: 08:00 - 17:00 (Binkılıç ASM)\nPerşembe: 09:00 - 12:00 (Hallaçlı Gezici Hizmet) / 13:00 - 17:00 (Binkılıç ASM)",
+    bio: "Binkılıç Aile Sağlığı Merkezi 34.15.018 Nolu Birim Aile Hekimidir. Birinci basamak muayene, kronik hastalık takipleri, bağışıklama ve koruyucu sağlık danışmanlığı hizmeti vermektedir. Hallaçlı Köyü gezici sağlık hizmetlerini yürütmektedir.",
+    schedule: "Salı, Çarşamba, Perşembe, Cuma: 08:00 - 17:00 (Binkılıç ASM)\nPazartesi: 08:00 - 12:00 (Binkılıç ASM) / 14:00 - 17:00 (Hallaçlı Gezici Hizmet)\nÖğle Arası: Her gün 12:00 - 13:00",
     avatar_color: "#0284c7",
     slug: "dr-emre-ileri",
     is_active: true
@@ -45,11 +45,11 @@ const defaultDoctors = [
     id: 2,
     name: "Menekşe Yılmaz",
     title: "Dr.",
-    unit_no: "34.09.002",
+    unit_no: "34.15.019",
     room_no: "2 Nolu Poliklinik",
     mobile_villages: "Aydınlar Köyü, Yaylacık Köyü",
-    bio: "Binkılıç Aile Sağlığı Merkezi 34.09.002 Nolu Birim Aile Hekimidir. Koruyucu hekimlik, gebe-bebek-çocuk izlemleri, kanser erken teşhis taramaları ve poliklinik hizmetleri vermektedir. Aydınlar ve Yaylacık köylerimize düzenli gezici sağlık hizmeti sunmaktadır.",
-    schedule: "Pazartesi, Perşembe, Cuma: 08:00 - 17:00 (Binkılıç ASM)\nSalı: 09:00 - 12:00 (Aydınlar Gezici Hizmet)\nÇarşamba: 09:00 - 12:00 (Yaylacık Gezici Hizmet)",
+    bio: "Binkılıç Aile Sağlığı Merkezi 34.15.019 Nolu Birim Aile Hekimidir. Koruyucu hekimlik, gebe-bebek-çocuk izlemleri, kanser erken teşhis taramaları ve poliklinik hizmetleri vermektedir. Aydınlar ve Yaylacık köylerimize düzenli gezici sağlık hizmeti sunmaktadır.",
+    schedule: "Pazartesi, Çarşamba, Perşembe, Cuma: 08:00 - 17:00 (Binkılıç ASM)\nSalı: 08:00 - 12:00 (Binkılıç ASM) / 14:00 - 17:00 (Aydınlar Gezici Hizmet) (Ayın ilk Salı günü 13:00 - 14:00 Yaylacık Gezici Hizmet)\nÖğle Arası: Her gün 12:00 - 13:00",
     avatar_color: "#0d9488",
     slug: "dr-menekse-yilmaz",
     is_active: true
@@ -59,21 +59,21 @@ const defaultDoctors = [
 const defaultStaff = [
   {
     id: 1,
-    name: "Elif Alp",
-    title: "Hemşire",
-    role_type: "nurse",
-    assigned_doctor: "Dr. Emre İleri (34.09.001 Nolu Birim)",
-    duties: "Aşı takvimi uygulamaları, bebek ve çocuk gelişim izlemleri, gebe izlemleri, enjeksiyon, pansuman ve tansiyon ölçümleri.",
-    slug: "hemsire-elif-alp"
-  },
-  {
-    id: 2,
     name: "Elif Öncül",
     title: "Ebe",
     role_type: "midwife",
-    assigned_doctor: "Dr. Menekşe Yılmaz (34.09.002 Nolu Birim)",
-    duties: "Kadın ve üreme sağlığı danışmanlığı, gebe ve lohusa takipleri, kanser taramaları (HPV/Kanser kitleri), bebek izlemleri ve emzirme eğitimi.",
+    assigned_doctor: "Dr. Emre İleri (34.15.018 Nolu Birim)",
+    duties: "Kadın ve üreme sağlığı danışmanlığı, gebe ve lohusa takipleri, aşı uygulamaları, kanser taramaları (HPV/GGK kitleri) ve bebek izlemleri.",
     slug: "ebe-elif-oncul"
+  },
+  {
+    id: 2,
+    name: "Elif Alp",
+    title: "Hemşire",
+    role_type: "nurse",
+    assigned_doctor: "Dr. Menekşe Yılmaz (34.15.019 Nolu Birim)",
+    duties: "Aşı takvimi uygulamaları, bebek ve çocuk gelişim izlemleri, gebe izlemleri, enjeksiyon, pansuman ve tansiyon/şeker ölçümleri.",
+    slug: "hemsire-elif-alp"
   },
   {
     id: 3,
@@ -100,7 +100,7 @@ const defaultMobileServices = [
     id: 1,
     village_name: "Hallaçlı Köyü",
     doctor_name: "Dr. Emre İleri",
-    days_and_hours: "Her Perşembe 09:00 - 12:00",
+    days_and_hours: "Her Hafta Pazartesi 14:00 - 17:00",
     service_location: "Hallaçlı Köy Konağı / Sağlık Evi",
     services: "Poliklinik muayenesi, reçete düzenleme, tansiyon/şeker takibi, kronik hastalık izlemi ve aşı uygulaması."
   },
@@ -108,7 +108,7 @@ const defaultMobileServices = [
     id: 2,
     village_name: "Aydınlar Köyü",
     doctor_name: "Dr. Menekşe Yılmaz",
-    days_and_hours: "Her Salı 09:00 - 12:00",
+    days_and_hours: "Her Hafta Salı 14:00 - 17:00",
     service_location: "Aydınlar Köy Sağlık Evi",
     services: "Genel muayene, gebe-bebek izlemi, kan alımı yönlendirmesi, kanser tarama kitleri teslimi ve ilaç takibi."
   },
@@ -116,7 +116,7 @@ const defaultMobileServices = [
     id: 3,
     village_name: "Yaylacık Köyü",
     doctor_name: "Dr. Menekşe Yılmaz",
-    days_and_hours: "Her Çarşamba 09:00 - 12:00",
+    days_and_hours: "Her Ayın İlk Salı Günü 13:00 - 14:00",
     service_location: "Yaylacık Köy Muhtarlığı Sağlık Odası",
     services: "Poliklinik muayenesi, yatağa bağımlı ve yaşlı hasta kontrolü, pansuman ve enjeksiyon uygulamaları."
   }
@@ -179,7 +179,7 @@ export const asmApi = {
           id: 1,
           title: "Binkılıç ASM Gezici Sağlık Hizmetleri Ziyaret Takvimi",
           summary: "Hallaçlı, Aydınlar ve Yaylacık köylerimize yönelik haftalık hekim ziyaret günleri ve saatleri ilan edilmiştir.",
-          content: "Her Salı Aydınlar Köyü, her Çarşamba Yaylacık Köyü ve her Perşembe Hallaçlı Köyü sağlık evlerinde yerinde muayene, aşı ve reçete hizmeti verilmektedir.",
+          content: "Her Hafta Pazartesi 14:00-17:00 Hallaçlı Köyü, her Hafta Salı 14:00-17:00 Aydınlar Köyü ve her ayın ilk Salı günü 13:00-14:00 Yaylacık Köyü sağlık evlerinde yerinde muayene, aşı ve reçete hizmeti verilmektedir.",
           category: "asm",
           published_date: "2026-09-19",
           is_featured: true

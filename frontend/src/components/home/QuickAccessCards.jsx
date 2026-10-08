@@ -6,7 +6,7 @@ export default function QuickAccessCards() {
   const cards = [
     {
       title: "Çalışma Saatlerimiz",
-      desc: "Hafta içi 08:00 - 17:00 ve hekimlerimizin esnek mesai çizelgesi hakkında bilgi alın.",
+      desc: "Hafta içi 08:00 - 17:00 (Öğle Arası 12:00 - 13:00) ve hekim mesai çizelgesi.",
       icon: Clock,
       color: "#0284c7",
       bgColor: "#e0f2fe",

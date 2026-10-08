@@ -131,7 +131,7 @@ export default function ContactPage({ info }) {
                   <Clock size={20} color="#0d9488" />
                   <div>
                     <div style={{ fontWeight: 700, color: '#0f172a' }}>Mesai Saatleri:</div>
-                    <div style={{ color: '#475569' }}>Hafta içi: 08:00 - 17:00 (Esnek Mesai: 08:00 - 19:00)</div>
+                    <div style={{ color: '#475569' }}>Hafta içi her gün: 08:00 - 17:00 (Öğle Arası: 12:00 - 13:00)</div>
                   </div>
                 </div>
               </div>
@@ -249,8 +249,8 @@ export default function ContactPage({ info }) {
                     onChange={(e) => setFormData({ ...formData, target_doctor: e.target.value })}
                   >
                     <option value="Fark Etmez">Fark Etmez / Tüm Birimler</option>
-                    <option value="Dr. Emre İleri">Dr. Emre İleri (34.09.001)</option>
-                    <option value="Dr. Menekşe Yılmaz">Dr. Menekşe Yılmaz (34.09.002)</option>
+                    <option value="Dr. Emre İleri">Dr. Emre İleri (34.15.018)</option>
+                    <option value="Dr. Menekşe Yılmaz">Dr. Menekşe Yılmaz (34.15.019)</option>
                   </select>
                 </div>
               </div>

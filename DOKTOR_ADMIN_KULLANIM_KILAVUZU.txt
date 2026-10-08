@@ -74,7 +74,7 @@ olduğunda:
 
 1. "Gezici sağlık hizmetleri" başlığına tıklayın.
 2. Güncellemek istediğiniz köyü seçin (Örn: Hallaçlı Köyü).
-3. "Ziyaret Gün ve Saatleri" alanını güncelleyin (Örn: "Her Perşembe 09:00 - 12:00").
+3. "Ziyaret Gün ve Saatleri" alanını güncelleyin (Örn: "Her Pazartesi 14:00 - 17:00").
 4. "Hizmet Yeri" veya "Sorumlu Hekim" bilgilerini gerekiyorsa düzenleyip "Kaydet"e basın.
 
 

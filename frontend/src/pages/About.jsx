@@ -24,11 +24,11 @@ export default function About({ info }) {
             </h2>
 
             <p style={{ color: '#334155', lineHeight: 1.8, marginBottom: '1.25rem' }}>
-              Merkezimiz, T.C. Sağlık Bakanlığı ve İstanbul İl Sağlık Müdürlüğü koordinasyonunda, Çatalca Binkılıç Mahallesinde <strong>34.09.001</strong> ve <strong>34.09.002</strong> nolu 2 Aile Hekimliği Birimi ile hizmet vermektedir.
+              Merkezimiz, T.C. Sağlık Bakanlığı ve İstanbul İl Sağlık Müdürlüğü koordinasyonunda, Çatalca Binkılıç Mahallesinde <strong>34.15.018</strong> ve <strong>34.15.019</strong> nolu 2 Aile Hekimliği Birimi ile hizmet vermektedir.
             </p>
 
             <p style={{ color: '#334155', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-              Aile hekimlerimiz <strong>Dr. Emre İleri</strong> ve <strong>Dr. Menekşe Yılmaz</strong>, aile sağlığı çalışanlarımız <strong>Hemşire Elif Alp</strong>, <strong>Ebe Elif Öncül</strong>, <strong>Hemşire Simge Ceryan</strong> ve destek personelimiz <strong>Nuray Demirel</strong> ile birlikte; koruyucu hekimlik, gebe-bebek-çocuk izlemleri, aşılama, kanser erken teşhis taramaları, kronik hastalık takibi ve poliklinik muayenesi alanlarında yüksek kalite standartlarında sağlık hizmeti sunmaktayız.
+              Aile hekimlerimiz <strong>Dr. Emre İleri</strong> (34.15.018) ve <strong>Dr. Menekşe Yılmaz</strong> (34.15.019), aile sağlığı çalışanlarımız <strong>Ebe Elif Öncül</strong>, <strong>Hemşire Elif Alp</strong>, <strong>Hemşire Simge Ceryan</strong> ve destek personelimiz <strong>Nuray Demirel</strong> ile birlikte; koruyucu hekimlik, gebe-bebek-çocuk izlemleri, aşılama, kanser erken teşhis taramaları, kronik hastalık takibi ve poliklinik muayenesi alanlarında yüksek kalite standartlarında sağlık hizmeti sunmaktayız.
             </p>
 
             <h3 style={{ fontSize: '1.25rem', color: '#0f172a', marginBottom: '1rem' }}>Temel İlkelerimiz:</h3>
